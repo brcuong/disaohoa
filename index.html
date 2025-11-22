@@ -1,241 +1,225 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.4">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hành trình tự do đi Sao Hỏa: Đặt vé tàu</title>
+    <style>
+        /* --- RESET & BASICS --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Georgia', serif; 
+            background-color: #0f0f12; /* Deep space black */
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        a { text-decoration: none; color: inherit; }
+        
+        /* --- COLORS --- */
+        :root {
+            --mars-red: #c1440e; 
+            --star-white: #ffffff;
+            --card-bg: #1a1a1e;
+        }
+
+        /* --- HERO SECTION --- */
+        header {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            background: radial-gradient(circle at center, #2a1a1a 0%, #0f0f12 70%);
+        }
+        h1 {
+            font-size: 3.5rem;
+            color: var(--mars-red);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        .subtitle {
+            font-size: 1.2rem;
+            font-style: italic;
+            opacity: 0.8;
+            margin-bottom: 40px;
+            font-family: sans-serif;
+        }
+        .cta-button {
+            padding: 15px 40px;
+            background-color: var(--mars-red);
+            color: white;
+            font-family: sans-serif;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: background 0.3s;
+            border: 1px solid var(--mars-red);
+            cursor: pointer;
+        }
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--mars-red);
+        }
+
+        /* --- BOOK SHOWCASE SECTION --- */
+        .section {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 20px;
+        }
+        
+        .book-showcase {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+            justify-content: center;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid #333;
+        }
+        
+        .book-details {
+            flex: 1;
+            min-width: 280px;
+        }
+        .book-title {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .price {
+            font-size: 1.5rem;
+            color: var(--mars-red);
+            font-family: sans-serif;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .specs {
+            list-style: none;
+            color: #aaa;
+            margin-bottom: 20px;
+            font-family: sans-serif;
+            font-size: 0.9rem;
+        }
+        .specs li {
+            margin-bottom: 8px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 8px;
+        }
+
+        /* --- FORM SECTION --- */
+        #register {
+            background-color: #151518;
+            padding: 60px 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .form-title {
+            font-family: sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--mars-red);
+            margin-bottom: 20px;
+        }
+        .form-container {
+            max-width: 640px;
+            margin: 0 auto;
+            background: white;
+            padding: 5px;
+            border-radius: 8px;
+        }
+        /* Responsive iframe container */
+        .iframe-wrapper {
+            position: relative;
+            padding-bottom: 150%; /* Increased height for form scrolling */
+            height: 0; 
+            overflow: hidden;
+        }
+        .iframe-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.8rem;
+            color: #666;
+            font-family: sans-serif;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            .book-showcase { text-align: center; }
+            .book-details { text-align: center; }
+            .iframe-wrapper { padding-bottom: 180%; }
+        }
+    </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Hành trình tự do đi Sao Hỏa: Đặt vé tàu&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* --- RESET &amp; BASICS --- */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>* { margin: 0; padding: 0; box-sizing: border-box; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Georgia', serif;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #0f0f12; /* Deep space black */</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #e0e0e0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>line-height: 1.6;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>a { text-decoration: none; color: inherit; }</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* --- COLORS --- */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>:root {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--mars-red: #c1440e;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>--star-white: #ffffff;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>--card-bg: #1a1a1e;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* --- HERO SECTION --- */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>header {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>min-height: 70vh;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: radial-gradient(circle at center, #2a1a1a 0%, #0f0f12 70%);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>h1 {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 3.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--mars-red);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: 2px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.subtitle {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.2rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-style: italic;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opacity: 0.8;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 40px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.cta-button {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 15px 40px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--mars-red);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 50px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>transition: background 0.3s;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid var(--mars-red);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.cta-button:hover {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: transparent;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--mars-red);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* --- BOOK SHOWCASE SECTION --- */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.section {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 800px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 60px auto;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.book-showcase {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>flex-wrap: wrap;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>gap: 40px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: var(--card-bg);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 40px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 1px solid #333;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>.book-details {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>flex: 1;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>min-width: 280px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.book-title {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 2rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #fff;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.price {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 1.5rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--mars-red);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: block;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.specs {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>list-style: none;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #aaa;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.9rem;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.specs li {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-bottom: 1px solid #333;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding-bottom: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* --- FORM SECTION --- */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>#register {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #151518;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 60px 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 40px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.form-title {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-transform: uppercase;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: 3px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: var(--mars-red);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-bottom: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.form-container {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 640px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 5px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 8px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* Responsive iframe container */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.iframe-wrapper {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding-bottom: 150%; /* Increased height for form scrolling */</p>
-<p class="p1"><span class="Apple-converted-space">            </span>height: 0;<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>overflow: hidden;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.iframe-wrapper iframe {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>position: absolute;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>top: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>left: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>height: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border: 0;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* --- FOOTER --- */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>footer {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 40px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.8rem;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: #666;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>/* Mobile adjustments */</p>
-<p class="p1"><span class="Apple-converted-space">        </span>@media (max-width: 600px) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>h1 { font-size: 2.5rem; }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.book-showcase { text-align: center; }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.book-details { text-align: center; }</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.iframe-wrapper { padding-bottom: 180%; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;header&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h1&gt;Hành trình tự do&lt;br&gt;đi Sao Hỏa&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="subtitle"&gt;Chuyến viễn du mang hồn thơ vào cõi vô định.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#book-info" class="cta-button"&gt;Xem chi tiết&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="section" style="text-align: center; color: #b0b0b0;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>"Giữa sức nặng trần gian và thinh không vũ trụ, ta tìm thấy mình trong thơ."&lt;br&gt;&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>Tuyển tập này là hành trình đi qua sự cô độc, niềm hy vọng, và khoảng cách vô tận giữa lòng người.</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="book-info" class="section"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="book-showcase"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;img src="book_mockup.jpeg" alt="Book Cover" style="width: 200px; height: auto; border: 2px solid #c1440e;"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="book-details"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h2 class="book-title"&gt;Hành trình tự do đi Sao Hỏa&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;span class="price"&gt;Giá: 200.000 VNĐ / tập thơ&lt;/span&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;ul class="specs"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li&gt;&lt;b&gt;Tác giả:&lt;/b&gt; Marcus Vũ&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li&gt;&lt;b&gt;Định dạng:&lt;/b&gt; Bìa mềm, có bìa bọc, 88 trang&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li&gt;&lt;b&gt;Ngôn ngữ:&lt;/b&gt; Tiếng Việt&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>&lt;li&gt;&lt;b&gt;Nhà xuất bản:&lt;/b&gt; Phụ nữ Việt Nam, liên kết với tác giả&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/ul&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;p style="color:#888; font-size: 0.9rem; margin-bottom: 20px;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>Hãy chọn số lượng tập thơ (1-10).</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;a href="#register" class="cta-button"&gt;Đặt ngay&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="register"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2 class="form-title"&gt;Bản đăng ký&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p style="margin-bottom: 20px; color: #888;"&gt;Điền các thông tin và số lượng tập thơ bạn muốn đặt.&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="form-container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="iframe-wrapper"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">                </span></p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdE3lrwYl-kXmdxEKq5_cFO2jB11rWG3fIp2GDq9Q5vDLbAkQ/viewform?embedded=true" width="640" height="1200" frameborder="0" marginheight="0" marginwidth="0"&gt;Loading…&lt;/iframe&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;footer&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p&gt;&amp;copy; 2025 Hành trình tự do đi Sao Hỏa. Tác giả giữ bản quyền. All rights reserved.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/footer&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+
+    <header>
+        <h1>Hành trình tự do<br>đi Sao Hỏa</h1>
+        <p class="subtitle">Chuyến viễn du mang hồn thơ vào cõi vô định.</p>
+        <a href="#book-info" class="cta-button">Xem chi tiết</a>
+    </header>
+
+    <section class="section" style="text-align: center; color: #b0b0b0;">
+        <p>
+            "Giữa sức nặng trần gian và thinh không vũ trụ, ta tìm thấy mình trong thơ."<br><br>
+            Tuyển tập này là hành trình đi qua sự cô độc, niềm hy vọng, và khoảng cách vô tận giữa lòng người.
+        </p>
+    </section>
+
+    <section id="book-info" class="section">
+        <div class="book-showcase">
+            <img src="book_mockup.jpeg" alt="Book Cover" style="width: 200px; height: auto; border: 2px solid #c1440e;">
+
+            <div class="book-details">
+                <h2 class="book-title">Hành trình tự do đi Sao Hỏa</h2>
+                <span class="price">Giá: 200.000 VNĐ / tập thơ</span>
+                
+                <ul class="specs">
+                    <li><b>Tác giả:</b> Marcus Vũ</li>
+                    <li><b>Định dạng:</b> Bìa mềm, có bìa bọc, 88 trang</li>
+                    <li><b>Ngôn ngữ:</b> Tiếng Việt</li>
+                    <li><b>Nhà xuất bản:</b> Phụ nữ Việt Nam, liên kết với tác giả</li>
+                </ul>
+
+                <p style="color:#888; font-size: 0.9rem; margin-bottom: 20px;">
+                    Hãy chọn số lượng tập thơ (1-10).
+                </p>
+                
+                <a href="#register" class="cta-button">Đặt ngay</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="register">
+        <h2 class="form-title">Bản đăng ký</h2>
+        <p style="margin-bottom: 20px; color: #888;">Điền các thông tin và số lượng tập thơ bạn muốn đặt.</p>
+        
+        <div class="form-container">
+            <div class="iframe-wrapper">
+                
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdE3lrwYl-kXmdxEKq5_cFO2jB11rWG3fIp2GDq9Q5vDLbAkQ/viewform?embedded=true" width="640" height="1200" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+                </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Hành trình tự do đi Sao Hỏa. Tác giả giữ bản quyền. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
