@@ -22,16 +22,21 @@
             --card-bg: #1a1a1e;
         }
 
-        /* --- HERO SECTION --- */
+       /* --- HERO SECTION --- */
         header {
-            min-height: 70vh;
+            min-height: 80vh; /* Tăng chiều cao lên một chút cho hoành tráng */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             padding: 20px;
-            background: radial-gradient(circle at center, #2a1a1a 0%, #0f0f12 70%);
+            /* DÒNG MỚI QUAN TRỌNG Ở DƯỚI */
+            /* Lớp phủ màu tối mờ + Hình ảnh banner.jpg của bạn */
+            background: linear-gradient(rgba(15, 15, 18, 0.6), rgba(15, 15, 18, 0.8)), url('book_mockup.jpeg');
+            background-size: cover; /* Đảm bảo ảnh phủ kín khung */
+            background-position: center center; /* Căn giữa ảnh */
+            background-attachment: fixed; /* Tạo hiệu ứng trượt ảnh đẹp mắt (tùy chọn) */
         }
         h1 {
             font-size: 3.5rem;
@@ -183,7 +188,7 @@
 
     <section id="book-info" class="section">
         <div class="book-showcase">
-            <img src="book_mockup.jpeg" alt="Book Cover" style="width: 200px; height: auto; border: 2px solid #c1440e;">
+            <img src="book_cover.HEIC" alt="Book Cover" style="width: 200px; height: auto; border: 2px solid #c1440e;">
 
             <div class="book-details">
                 <h2 class="book-title">Hành trình tự do đi Sao Hỏa</h2>
